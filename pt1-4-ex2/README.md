@@ -147,7 +147,7 @@ Per a cada una de les sis instàncies (2 per subxarxa):
 
 ### Captures del desplegament
 
-![VPC i subxarxes a la consola d'AWS](assets/vpc_subnets.png)
+![VPC i subxarxes desplegades a AWS](assets/vpc_subnets.png)
 
 ![Les sis instàncies EC2 en execució](assets/ec2_instances.png)
 

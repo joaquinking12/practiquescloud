@@ -1,0 +1,20 @@
+# Terraform
+**/.terraform/*
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+*.tfplan
+crash.log
+crash.*.log
+
+# Variables amb dades sensibles
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Sistema operatiu i editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

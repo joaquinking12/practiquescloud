@@ -38,7 +38,9 @@ No es crea cap VPC ni subxarxa: les instàncies s'ubiquen a la xarxa que AWS pro
 pt1-4-ex1/
 ├── assets/
 │   ├── topologia.drawio
-│   └── topologia.png
+│   ├── topologia.png
+│   ├── aws_ec2_instances.png
+│   └── aws_instance_details.png
 ├── README.md
 └── main.tf
 ```
@@ -115,6 +117,18 @@ aws ec2 describe-instances \
 
 També pots consultar-les a la consola d'AWS: **EC2 → Instances**.
 
+## Captures reals del desplegament
+
+Les captures següents s'han obtingut directament de la consola d'AWS (regió **us-east-1**) un cop executat `terraform apply`. Es pot veure el filtre `pt1-4-ex1`, les **2 instàncies en estat `running`**, el tipus `t3.micro` i la zona `us-east-1c`.
+
+### Llistat de les 2 instàncies EC2
+
+![Llistat de les 2 instàncies EC2 a la consola AWS](assets/aws_ec2_instances.png)
+
+### Detall d'una instància
+
+![Detall de la instància pt1-4-ex1-ec2-01](assets/aws_instance_details.png)
+
 ## Variables
 
 | Variable | Valor per defecte | Descripció |
@@ -150,3 +164,4 @@ Aquest comandament elimina les 2 instàncies EC2 creades per aquest projecte. No
 | `InvalidClientTokenId` / `ExpiredToken` | Les credencials del Learner Lab han caducat. Torna a copiar-les a `~/.aws/credentials`. |
 | `No valid credential sources found` | No existeix `~/.aws/credentials` o el perfil `default` no és correcte. |
 | L'AMI no es troba | Comprova que el patró `al2023-ami-2023.*-x86_64` continuï sent vàlid a la regió. |
+| `terraform plan` proposa reemplaçar les instàncies | És normal: `data "aws_ami"` amb `most_recent = true` detecta una AMI nova. Si vols conservar les instàncies actuals, fixa l'AMI amb un ID concret. |

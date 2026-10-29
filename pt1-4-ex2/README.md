@@ -147,9 +147,31 @@ Per a cada una de les sis instàncies (2 per subxarxa):
 
 ### Captures del desplegament
 
-![VPC i subxarxes desplegades a AWS](assets/vpc_subnets.png)
+Totes les captures següents són **captures reals de la consola d'AWS** (regió `us-east-1`, 29/10/2026), fetes després del desplegament. S'hi poden veure els identificadors reals dels recursos, els CIDR i la zona de disponibilitat.
 
-![Les sis instàncies EC2 en execució](assets/ec2_instances.png)
+#### 1. VPC creada (`10.0.0.0/16`)
+
+![Llistat de VPC amb la VPC de la pràctica](assets/aws_vpc_list.png)
+
+#### 2. Detall de la VPC i mapa de recursos
+
+![Detall de la VPC amb el mapa de les 3 subxarxes](assets/aws_vpc_details.png)
+
+#### 3. Les 3 subxarxes a `us-east-1a`
+
+A la captura es veuen els CIDR `10.0.32.0/25`, `10.0.30.0/23` i `10.0.33.0/28`, la zona `us-east-1a` i les IPs disponibles (121, 505 i 9 respectivament).
+
+![Subxarxes creades amb els CIDR i l'AZ correctes](assets/vpc_subnets.png)
+
+#### 4. Les 6 instàncies EC2 en execució
+
+![Llistat de les 6 instàncies EC2 en estat running](assets/ec2_instances.png)
+
+#### 5. Detall d'una instància
+
+S'hi pot comprovar el nom complet, la IP privada, la VPC, la subxarxa, la zona de disponibilitat, el tipus `t3.micro` i l'AMI d'Amazon Linux 2023.
+
+![Detall de la instància practiquescloud-pt1-4-ex2-ec2-subnet-a-01](assets/aws_instance_details.png)
 
 ## Part C — Desplegament amb Terraform
 
@@ -160,8 +182,11 @@ pt1-4-ex2/
 ├── assets/
 │   ├── topologia.drawio
 │   ├── topologia.png
+│   ├── aws_vpc_list.png
+│   ├── aws_vpc_details.png
 │   ├── vpc_subnets.png
-│   └── ec2_instances.png
+│   ├── ec2_instances.png
+│   └── aws_instance_details.png
 ├── README.md
 ├── main.tf
 ├── variables.tf
@@ -326,3 +351,4 @@ Si també has fet el desplegament manual de la Part B, **no l'eliminis amb Terra
 | `VcpuLimitExceeded` | El compte ha arribat al límit de vCPU. Allibera instàncies o demana augment de quota. |
 | L'AMI no es troba | Revisa el patró `al2023-ami-2023.*-x86_64` i la regió `us-east-1`. |
 | Les instàncies no tenen Internet | És el comportament esperat: les subxarxes són privades i no hi ha Internet Gateway. |
+| `terraform plan` proposa reemplaçar les instàncies | És normal: `data "aws_ami"` amb `most_recent = true` detecta una AMI nova. Si vols conservar les instàncies actuals, fixa l'AMI amb un ID concret. |

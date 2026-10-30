@@ -190,15 +190,19 @@ Si hiciste también la Parte B por consola, bórrala a mano en orden inverso: in
 
 ---
 
-## 4. Publicar en GitHub
+## 4. Publicación en GitHub
 
-El repositorio local ya está inicializado y con los cambios preparados. Para publicarlo:
+Repositorio **público** ya publicado:
+
+**https://github.com/joaquinking12/practiquescloud**
+
+Si necesitas volver a subir cambios:
 
 ```bash
 cd practiquescloud
-git remote add origin https://github.com/TU_USUARIO/practiquescloud.git
-git branch -M main
-git push -u origin main
+git add -A
+git commit -m "Descripció del canvi"
+git push
 ```
 
-> El repositorio debe ser **público** y llamarse `practiquescloud`, tal como pide el enunciado. Asegúrate de que `terraform.tfstate` y la carpeta `.terraform/` no se suben (ya están en `.gitignore`).
+> El repositorio debe ser **público** y llamarse `practiquescloud`, tal como pide el enunciado. `terraform.tfstate` y la carpeta `.terraform/` no se suben (están en `.gitignore`).

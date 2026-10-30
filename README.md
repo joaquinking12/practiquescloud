@@ -2,6 +2,8 @@
 
 Repositori de pràctiques del mòdul **OPT · Cloud Computing** (ASIX2, INS Provençana).
 
+> **Lliurament:** <https://github.com/joaquinking12/practiquescloud>
+
 ## Contingut
 
 | Pràctica | Carpeta | Descripció |

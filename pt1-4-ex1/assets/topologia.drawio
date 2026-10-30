@@ -13,15 +13,15 @@
           <mxGeometry x="40" y="70" width="980" height="520" as="geometry" />
         </mxCell>
 
-        <mxCell id="ec2-1" value="&lt;b&gt;pt1-4-ex1-ec2-01&lt;/b&gt;&lt;br&gt;t3.micro · Amazon Linux 2023" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;fillColor=#ED7100;strokeColor=#FFFFFF;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontSize=11;fontColor=#232F3E;" vertex="1" parent="vpc">
+        <mxCell id="ec2-1" value="&lt;b&gt;pt1-4-ex1-ec2-01&lt;/b&gt;&lt;br&gt;t3.micro · Amazon Linux 2023&lt;br&gt;IP privada: 172.31.25.31&lt;br&gt;IP pública: assignada per AWS" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;fillColor=#ED7100;strokeColor=#FFFFFF;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontSize=11;fontColor=#232F3E;" vertex="1" parent="vpc">
           <mxGeometry x="260" y="210" width="80" height="80" as="geometry" />
         </mxCell>
 
-        <mxCell id="ec2-2" value="&lt;b&gt;pt1-4-ex1-ec2-02&lt;/b&gt;&lt;br&gt;t3.micro · Amazon Linux 2023" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;fillColor=#ED7100;strokeColor=#FFFFFF;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontSize=11;fontColor=#232F3E;" vertex="1" parent="vpc">
+        <mxCell id="ec2-2" value="&lt;b&gt;pt1-4-ex1-ec2-02&lt;/b&gt;&lt;br&gt;t3.micro · Amazon Linux 2023&lt;br&gt;IP privada: 172.31.24.75&lt;br&gt;IP pública: assignada per AWS" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;fillColor=#ED7100;strokeColor=#FFFFFF;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontSize=11;fontColor=#232F3E;" vertex="1" parent="vpc">
           <mxGeometry x="640" y="210" width="80" height="80" as="geometry" />
         </mxCell>
 
-        <mxCell id="note" value="2 instàncies EC2 t3.micro amb Amazon Linux 2023&lt;br&gt;desplegades a la VPC per defecte del compte&lt;br&gt;Zona de disponibilitat assignada automàticament per AWS" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#555555;" vertex="1" parent="vpc">
+        <mxCell id="note" value="Zona de disponibilitat assignada automàticament per AWS (us-east-1c)&lt;br&gt;Les IPs públiques són dinàmiques i canvien en reiniciar el laboratori" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#555555;" vertex="1" parent="vpc">
           <mxGeometry x="190" y="360" width="600" height="70" as="geometry" />
         </mxCell>
 

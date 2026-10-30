@@ -207,6 +207,7 @@ pt1-4-ex2/
   - `aws_subnet` recorre `var.subnets` amb `for_each`; totes les subxarxes hereten la mateixa AZ i tenen l'IP pública desactivada.
   - `locals.instances` genera, amb bucles `for` i `flatten`, un mapa de 6 entrades (2 per subxarxa).
   - `aws_instance` recorre aquest mapa amb `for_each` i assigna cada instància a la subxarxa corresponent.
+  - `lifecycle { ignore_changes = [ami] }` evita que una AMI nova publicada per Amazon substitueixi les instàncies en marxa: la imatge inicial continua venint del `data source`.
 - **`outputs.tf`**
   - Retorna l'ID de la VPC, els IDs i CIDR de les subxarxes, i els IDs i IPs privades de les instàncies.
 
@@ -351,4 +352,4 @@ Si també has fet el desplegament manual de la Part B, **no l'eliminis amb Terra
 | `VcpuLimitExceeded` | El compte ha arribat al límit de vCPU. Allibera instàncies o demana augment de quota. |
 | L'AMI no es troba | Revisa el patró `al2023-ami-2023.*-x86_64` i la regió `us-east-1`. |
 | Les instàncies no tenen Internet | És el comportament esperat: les subxarxes són privades i no hi ha Internet Gateway. |
-| `terraform plan` proposa reemplaçar les instàncies | És normal: `data "aws_ami"` amb `most_recent = true` detecta una AMI nova. Si vols conservar les instàncies actuals, fixa l'AMI amb un ID concret. |
+| `terraform plan` mostra canvis | El codi aplica `lifecycle { ignore_changes = [ami] }`, així que una AMI nova no substitueix les instàncies en marxa. Si tot i així hi ha canvis, revisa les variables. |

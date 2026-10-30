@@ -107,4 +107,10 @@ resource "aws_instance" "this" {
   tags = {
     Name = each.value
   }
+
+  # L'AMI s'obté sempre amb el data source (most_recent), però no volem que
+  # una AMI nova faci substituir les instàncies que ja estan en marxa.
+  lifecycle {
+    ignore_changes = [ami]
+  }
 }

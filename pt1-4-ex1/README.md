@@ -88,7 +88,8 @@ El provider no conté cap credencial: utilitza la cadena de credencials per defe
 3. **Variables**: tots els valors configurables (regió, tipus d'instància, noms, patró de l'AMI) són variables, no valors hardcodejats dins dels recursos.
 4. **`data "aws_ami"`**: cerca l'AMI més recent d'Amazon Linux 2023 propietat d'Amazon, filtrant per nom, arquitectura `x86_64` i virtualització `hvm`.
 5. **`aws_instance` amb `for_each`**: recorre el conjunt `var.instance_names` i crea una instància per cada nom. L'etiqueta `Name` pren el valor de cada element.
-6. **Etiquetes**: `default_tags` aporta `Project`, `Environment`, `Exercise` i `ManagedBy`; cada recurs afegeix la seva `Name` descriptiva.
+6. **`lifecycle { ignore_changes = [ami] }`**: la imatge inicial surt del `data source` (sempre la més recent), però si després es publica una AMI nova, `terraform plan` no substitueix les instàncies que ja estan en marxa.
+7. **Etiquetes**: `default_tags` aporta `Project`, `Environment`, `Exercise` i `ManagedBy`; cada recurs afegeix la seva `Name` descriptiva.
 
 ## Execució
 
@@ -164,4 +165,4 @@ Aquest comandament elimina les 2 instàncies EC2 creades per aquest projecte. No
 | `InvalidClientTokenId` / `ExpiredToken` | Les credencials del Learner Lab han caducat. Torna a copiar-les a `~/.aws/credentials`. |
 | `No valid credential sources found` | No existeix `~/.aws/credentials` o el perfil `default` no és correcte. |
 | L'AMI no es troba | Comprova que el patró `al2023-ami-2023.*-x86_64` continuï sent vàlid a la regió. |
-| `terraform plan` proposa reemplaçar les instàncies | És normal: `data "aws_ami"` amb `most_recent = true` detecta una AMI nova. Si vols conservar les instàncies actuals, fixa l'AMI amb un ID concret. |
+| `terraform plan` mostra canvis | El codi aplica `lifecycle { ignore_changes = [ami] }`, així que una AMI nova no substitueix les instàncies en marxa. Si tot i així hi ha canvis, revisa les variables. |

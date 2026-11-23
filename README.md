@@ -44,7 +44,10 @@ practiquescloud/
     │   ├── 03-terraform-output.png
     │   ├── 04-security-group.png
     │   ├── 05-xarxa.png
-    │   └── 06-instancies-ec2.png
+    │   ├── 06-instancies-ec2.png
+    │   ├── 07-ssh-ec2a-ping.png
+    │   ├── 08-ssh-ec2b.png
+    │   └── 09-ping-extern-bloquejat.png
     ├── README.md
     └── main.tf
 ```

@@ -58,8 +58,10 @@ El grup **SG-PT2-2** (`sg-0f20e975d305229fa`) conté exactament les tres regles 
 
 | Etiqueta | Instance ID | Tipus | Subxarxa / AZ | IP privada | IP pública |
 |----------|-------------|-------|---------------|------------|------------|
-| `ec2-a` | `i-0d9eb645953e1719a` | `t3.micro` | Public Subnet A · `us-east-1a` | `10.0.1.199` | `44.193.84.84` |
-| `ec2-b` | `i-07172b53dd799c38e` | `t3.micro` | Public Subnet B · `us-east-1b` | `10.0.2.130` | `44.203.186.70` |
+| `ec2-a` | `i-0d9eb645953e1719a` | `t3.micro` | Public Subnet A · `us-east-1a` | `10.0.1.199` | `184.196.75.111` |
+| `ec2-b` | `i-07172b53dd799c38e` | `t3.micro` | Public Subnet B · `us-east-1b` | `10.0.2.130` | `3.86.184.29` |
+
+> Les IP públiques són dinàmiques al Learner Lab: si s'atura i s'engega la instància, canvien. Les IP privades es mantenen.
 
 ## 5. Desplegament
 
@@ -81,16 +83,28 @@ I es pot comprovar que s'han creat tots els recursos:
 
 ![terraform state list](assets/02-terraform-state-list.png)
 
-## 6. Comprovació del funcionament
+## 6. Comprovació del funcionament (proves reals)
 
-Amb les regles del grup de seguretat configurades, el comportament esperat és:
+Proves executades amb el desplegament real al Learner Lab:
 
 | Prova | Comanda | Resultat |
 |-------|---------|----------|
-| SSH des de fora | `ssh -i vockey.pem ec2-user@44.193.84.84` | ✅ Permès (TCP 22 des de `0.0.0.0/0`) |
-| Ping entre instàncies | `ping -c 4 10.0.2.130` (des de `ec2-a`) | ✅ Permès (origen dins `10.0.0.0/16`) |
-| Sortida a Internet | `ping -c 4 8.8.8.8` | ✅ Permès (egress total + IGW) |
-| Ping des del PC a l'EC2 | `ping 44.203.186.70` | ❌ Bloquejat (ICMP només des de la VPC) |
+| SSH des de fora | `ssh -i vockey.pem ec2-user@184.196.75.111` | ✅ Permès (TCP 22 des de `0.0.0.0/0`) |
+| Ping entre instàncies | `ping -c 4 10.0.2.130` (des de `ec2-a`) | ✅ Permès, 0% pèrdua (origen dins `10.0.0.0/16`) |
+| Sortida a Internet | `ping -c 4 8.8.8.8` (des de `ec2-a`) | ✅ Permès, 0% pèrdua (egress total + IGW) |
+| Ping des del PC a l'EC2 | `ping -c 4 3.86.184.29` (IP pública d'`ec2-b`) | ❌ Bloquejat, 100% pèrdua (ICMP només des de la VPC) |
+
+**SSH a `ec2-a` i ping intern + sortida a Internet:**
+
+![SSH a ec2-a i pings](assets/07-ssh-ec2a-ping.png)
+
+**SSH des de fora a `ec2-b` (permès):**
+
+![SSH a ec2-b](assets/08-ssh-ec2b.png)
+
+**Ping des de fora a la IP pública d'`ec2-b` (bloquejat pel Security Group):**
+
+![Ping extern bloquejat](assets/09-ping-extern-bloquejat.png)
 
 La clau privada `vockey.pem` es pot obtenir des del Learner Lab d'AWS Academy i s'utilitza amb l'usuari `ec2-user` d'Amazon Linux.
 

@@ -29,11 +29,11 @@
           <mxGeometry x="810" y="460" width="690" height="310" as="geometry" />
         </mxCell>
 
-        <mxCell id="ec2a" value="ec2-a&#10;t3.micro · Amazon Linux 2023 · clau vockey&#10;IP privada 10.0.1.199&#10;IP pública 44.193.84.84&#10;SG-PT2-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e0;strokeColor=#e07b00;fontSize=13;verticalAlign=middle;align=left;spacingLeft=12;" vertex="1" parent="1">
+        <mxCell id="ec2a" value="ec2-a&#10;t3.micro · Amazon Linux 2023 · clau vockey&#10;IP privada 10.0.1.199&#10;IP pública 184.196.75.111&#10;SG-PT2-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e0;strokeColor=#e07b00;fontSize=13;verticalAlign=middle;align=left;spacingLeft=12;" vertex="1" parent="1">
           <mxGeometry x="140" y="570" width="610" height="170" as="geometry" />
         </mxCell>
 
-        <mxCell id="ec2b" value="ec2-b&#10;t3.micro · Amazon Linux 2023 · clau vockey&#10;IP privada 10.0.2.130&#10;IP pública 44.203.186.70&#10;SG-PT2-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e0;strokeColor=#e07b00;fontSize=13;verticalAlign=middle;align=left;spacingLeft=12;" vertex="1" parent="1">
+        <mxCell id="ec2b" value="ec2-b&#10;t3.micro · Amazon Linux 2023 · clau vockey&#10;IP privada 10.0.2.130&#10;IP pública 3.86.184.29&#10;SG-PT2-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e0;strokeColor=#e07b00;fontSize=13;verticalAlign=middle;align=left;spacingLeft=12;" vertex="1" parent="1">
           <mxGeometry x="850" y="570" width="610" height="170" as="geometry" />
         </mxCell>
 

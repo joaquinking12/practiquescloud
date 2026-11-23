@@ -10,6 +10,7 @@ Repositori de pràctiques del mòdul **OPT · Cloud Computing** (ASIX2, INS Prov
 |---|---|---|
 | **Pt1.4 · Exercici 1** | [`pt1-4-ex1/`](pt1-4-ex1/) | 2 instàncies EC2 `t3.micro` amb Amazon Linux 2023 a `us-east-1`, creades amb Terraform. |
 | **Pt1.4 · Exercici 2** | [`pt1-4-ex2/`](pt1-4-ex2/) | VPC `10.0.0.0/16`, 3 subxarxes a `us-east-1a` i 6 instàncies EC2 (2 per subxarxa). Desplegament per consola i amb Terraform. |
+| **Pt2.2** | [`pt2-2/`](pt2-2/) | VPC `VPC-03` (`10.0.0.0/16`) amb 2 subxarxes públiques, Internet Gateway, taula de rutes, Security Group i 2 instàncies EC2 `t3.micro`. |
 
 ```text
 practiquescloud/
@@ -21,19 +22,31 @@ practiquescloud/
 │   │   └── aws_instance_details.png
 │   ├── README.md
 │   └── main.tf
-└── pt1-4-ex2/
+├── pt1-4-ex2/
+│   ├── assets/
+│   │   ├── topologia.drawio
+│   │   ├── topologia.png
+│   │   ├── aws_vpc_list.png
+│   │   ├── aws_vpc_details.png
+│   │   ├── vpc_subnets.png
+│   │   ├── ec2_instances.png
+│   │   └── aws_instance_details.png
+│   ├── README.md
+│   ├── main.tf
+│   ├── variables.tf
+│   └── outputs.tf
+└── pt2-2/
     ├── assets/
     │   ├── topologia.drawio
     │   ├── topologia.png
-    │   ├── aws_vpc_list.png
-    │   ├── aws_vpc_details.png
-    │   ├── vpc_subnets.png
-    │   ├── ec2_instances.png
-    │   └── aws_instance_details.png
+    │   ├── 01-terraform-validate.png
+    │   ├── 02-terraform-state-list.png
+    │   ├── 03-terraform-output.png
+    │   ├── 04-security-group.png
+    │   ├── 05-xarxa.png
+    │   └── 06-instancies-ec2.png
     ├── README.md
-    ├── main.tf
-    ├── variables.tf
-    └── outputs.tf
+    └── main.tf
 ```
 
 ## Requisits
@@ -61,6 +74,13 @@ terraform plan
 terraform apply
 ```
 
+```bash
+cd pt2-2
+terraform init
+terraform plan
+terraform apply
+```
+
 Per eliminar els recursos:
 
 ```bash
@@ -75,6 +95,7 @@ Els README de cada exercici inclouen el pas a pas, els diagrames de topologia (d
 
 - Exercici 1: llistat de les 2 instàncies i detall d'una instància.
 - Exercici 2: VPC, mapa de recursos, les 3 subxarxes amb CIDR i AZ, les 6 instàncies en execució i detall d'una instància.
+- Pt2.2: topologia de la infraestructura, validació de Terraform, llistat de recursos de l'estat, outputs, regles del Security Group i detall de la xarxa i de les instàncies EC2.
 
 ## Autor
 

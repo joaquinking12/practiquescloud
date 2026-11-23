@@ -39,6 +39,7 @@ practiquescloud/
     ├── assets/
     │   ├── topologia.drawio
     │   ├── topologia.png
+    │   ├── topologia-aws.png
     │   ├── 01-terraform-validate.png
     │   ├── 02-terraform-state-list.png
     │   ├── 03-terraform-output.png
@@ -47,7 +48,16 @@ practiquescloud/
     │   ├── 06-instancies-ec2.png
     │   ├── 07-ssh-ec2a-ping.png
     │   ├── 08-ssh-ec2b.png
-    │   └── 09-ping-extern-bloquejat.png
+    │   ├── 09-ping-extern-bloquejat.png
+    │   ├── 10-terraform-refresh.png
+    │   ├── 11-terraform-output-terminal.png
+    │   ├── aws-vpc.png
+    │   ├── aws-subnets.png
+    │   ├── aws-subnet-a-ruta.png
+    │   ├── aws-subnet-b-ruta.png
+    │   ├── aws-route-tables.png
+    │   ├── aws-security-group.png
+    │   └── aws-instances.png
     ├── README.md
     └── main.tf
 ```
@@ -98,7 +108,7 @@ Els README de cada exercici inclouen el pas a pas, els diagrames de topologia (d
 
 - Exercici 1: llistat de les 2 instàncies i detall d'una instància.
 - Exercici 2: VPC, mapa de recursos, les 3 subxarxes amb CIDR i AZ, les 6 instàncies en execució i detall d'una instància.
-- Pt2.2: topologia de la infraestructura, validació de Terraform, llistat de recursos de l'estat, outputs, regles del Security Group i detall de la xarxa i de les instàncies EC2.
+- Pt2.2: topologia de la infraestructura, captures reals de la consola AWS (VPC, subxarxes, taules de rutes, Security Group i instàncies), validació de Terraform, llistat de recursos de l'estat, outputs i proves SSH/ping.
 
 ## Autor
 

@@ -32,6 +32,10 @@ Tot el codi és al fitxer [`main.tf`](main.tf).
 
 ![Topologia de la infraestructura](assets/topologia.png)
 
+Vista general de la infraestructura a AWS:
+
+![Diagrama AWS de la infraestructura](assets/topologia-aws.png)
+
 El fitxer editable de la topologia és [`assets/topologia.drawio`](assets/topologia.drawio).
 
 ## 4. Recursos desplegats
@@ -63,6 +67,36 @@ El grup **SG-PT2-2** (`sg-0f20e975d305229fa`) conté exactament les tres regles 
 
 > Les IP públiques són dinàmiques al Learner Lab: si s'atura i s'engega la instància, canvien. Les IP privades es mantenen.
 
+### Captures de la consola d'AWS
+
+**VPC-03:**
+
+![VPC-03 a la consola](assets/aws-vpc.png)
+
+**Subxarxes públiques A i B:**
+
+![Subxarxes a la consola](assets/aws-subnets.png)
+
+**Public Subnet A i la seva taula de rutes:**
+
+![Subnet A i taula de rutes](assets/aws-subnet-a-ruta.png)
+
+**Public Subnet B i la seva taula de rutes:**
+
+![Subnet B i taula de rutes](assets/aws-subnet-b-ruta.png)
+
+**Taules de rutes i associacions:**
+
+![Taules de rutes](assets/aws-route-tables.png)
+
+**Regles del grup de seguretat SG-PT2-2:**
+
+![Security Group a la consola](assets/aws-security-group.png)
+
+**Instàncies EC2 en execució:**
+
+![Instàncies EC2 a la consola](assets/aws-instances.png)
+
 ## 5. Desplegament
 
 ```bash
@@ -82,6 +116,14 @@ En acabar, Terraform mostra les IPs de les instàncies:
 I es pot comprovar que s'han creat tots els recursos:
 
 ![terraform state list](assets/02-terraform-state-list.png)
+
+Captures del terminal on s'executa `terraform apply -refresh-only` i es mostren els outputs:
+
+![terraform refresh](assets/10-terraform-refresh.png)
+
+![terraform output al terminal](assets/11-terraform-output-terminal.png)
+
+> Les captures de consola i de terminal es van fer en moments diferents del lab; com que les IP públiques són dinàmiques, poden aparèixer IPs diferents de les actuals. Els IDs de VPC, subxarxes, grup de seguretat i instàncies sí que coincideixen.
 
 ## 6. Comprovació del funcionament (proves reals)
 
